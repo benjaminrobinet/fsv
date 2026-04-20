@@ -1,6 +1,17 @@
 # Changelog
 
 
+## v0.1.2
+
+
+### 🏡 Chore
+
+- Remove debug logs ([d46ccc5](https://github.com/plutotcool/fsv/commit/d46ccc5))
+
+### ❤️ Contributors
+
+- Juliendargelos <hello@julien.gl>
+
 ## v0.1.1
 
 ## v0.1.0
