@@ -14,11 +14,13 @@
   "scripts": {
     "build": "tsdown",
     "build:demo": "vite build -c demo/vite.config.ts",
+    "release": "changelogen --release --push --publish",
     "dev": "vite -c demo/vite.config.ts",
     "fsv": "tsx src/cli"
   },
   "devDependencies": {
     "@types/node": "^25.6.0",
+    "changelogen": "^0.6.2",
     "tsdown": "^0.21.7",
     "typescript": "^6.0.2",
     "vite": "^8.0.8"
@@ -96,5 +98,8 @@
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
-  "types": "./dist/index.d.cts"
+  "types": "./dist/index.d.cts",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
 }
