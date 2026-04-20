@@ -82,3 +82,12 @@ span {
     pointer-events: auto;
   }
 }
+
+.viewport-measurer {
+  width: 1px;
+  height: 100svh;
+  pointer-events: none;
+  position: absolute;
+  top: -100svh;
+  left: -100%;
+}

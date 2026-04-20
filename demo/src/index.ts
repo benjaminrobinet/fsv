@@ -3,6 +3,7 @@ import { Renderer } from '@plutotcool/fsv'
 ;(async () => {
   let scrollHeight: number
 
+  const viewportMeasurer = document.querySelector<HTMLElement>('.viewport-measurer')!
   const frames = document.querySelector('span')!
   const canvas = document.querySelector('canvas')!
   const renderer = new Renderer(canvas)
@@ -17,7 +18,7 @@ import { Renderer } from '@plutotcool/fsv'
   addEventListener('scroll', onScroll, { passive: true })
 
   function onResize() {
-    scrollHeight = document.documentElement.scrollHeight - window.innerHeight
+    scrollHeight = document.documentElement.scrollHeight - viewportMeasurer.offsetHeight
     onScroll()
   }
 
