@@ -442,7 +442,6 @@ function resolveEncoderOptions(
     threadType: FF_THREAD_FRAME,
     gopSize: 5,
     maxBFrames: 0,
-    pixelFormat: AV_PIX_FMT_YUV420P,
     timeBase: stream.timeBase,
     frameRate: stream.avgFrameRate,
     ...encoderOptions,
@@ -456,6 +455,7 @@ function resolveEncoderOptions(
           level: '5.1',
           sc_threshold: '0',
           refs: '1',
+          pixel_format: AV_PIX_FMT_YUV420P
         } :
 
         format === 'webm' ? {
@@ -466,7 +466,8 @@ function resolveEncoderOptions(
           'row-mt': '1',
           'tile-columns': '2',
           'tile-rows': '1',
-          'frame-parallel': '1'
+          'frame-parallel': '1',
+          pixel_format: AV_PIX_FMT_YUV420P
         } :
 
         null
