@@ -92,6 +92,10 @@ export class TrackDecoder implements Video {
   public set(index: number): void {
     index = Math.max(0, Math.min(this.length, index))
 
+    if (index === this.currentFrame) {
+      return
+    }
+
     this.pendingFrame = index
 
     const frame = this.track?.frames[index]

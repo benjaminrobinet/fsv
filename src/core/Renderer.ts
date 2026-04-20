@@ -123,6 +123,67 @@ export class Renderer implements Video {
     this.initialize()
   }
 
+  /**
+   * Loads a video in fsv format from the provided stream reader or url and
+   * optional video decoder config.
+   *
+   * @param source The video source as an stream reader or a url.
+   * @param byteLength Optional total byte length of the fsv data in the stream.
+   * @param config Optional video decoder config that overrides the one from the
+   *        fsv manifest.
+   *
+   * @throws If the source is a stream reader and byteLength is not provided, or
+   *         if the http response doesn't include a Content-Length header.
+   *
+   * @returns A promise that resolves when the video is loaded and ready to be
+   *          scrubbed.
+   */
+  public async loadStream(
+    source: ReadableStreamDefaultReader<Uint8Array<ArrayBuffer>> | string,
+    byteLength?: number,
+    config?: Partial<VideoDecoderConfig>
+  ): Promise<{
+    /**
+     * A promise that resolves when all the frames have been loaded from the
+     * stream.
+     */
+    finished: Promise<void>
+  }> {
+    let reader: ReadableStreamDefaultReader<Uint8Array<ArrayBuffer>>
+
+    if (typeof source === 'string') {
+      const response = await fetch(source)
+
+      if (!response.ok) {
+        throw new Error(`Failed to fetch video: ${response.statusText}`)
+      }
+
+      byteLength ||= parseInt(response.headers.get('content-length') || '0', 10)
+      reader = response.body!.getReader()
+    } else {
+      reader = source
+    }
+
+    if (!byteLength) {
+      throw new Error(
+        'Streaming requires a Content-Length header ' +
+        'or explicit byteLength parameter'
+      )
+    }
+
+    const { finished } = await this.decoder.loadStream(
+      reader,
+      byteLength,
+      config
+    )
+
+    this.initialize()
+
+    return {
+      finished
+    }
+  }
+
   public seek(time: number): void {
     this.decoder.seek(time)
   }

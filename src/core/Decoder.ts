@@ -115,6 +115,49 @@ export class Decoder implements Video {
     this.alphaFrame = undefined
   }
 
+  /**
+   * Loads a fsv video from the given stream. Resolves immediately after loading
+   * the manifest, and progressively loads frames from the stream.
+   *
+   * @param reader The reader of the stream to read the fsv data from.
+   * @param byteLength The total byte length of the fsv data in the stream.
+   *
+   * @return An object containing a promise that resolves when all the frames
+   *         have been loaded from the stream.
+   */
+  public async loadStream(
+    reader: ReadableStreamDefaultReader<Uint8Array<ArrayBuffer>>,
+    byteLength: number,
+    config?: Partial<VideoDecoderConfig>
+  ): Promise<{
+    /**
+     * A promise that resolves when all the frames have been loaded from the
+     * stream.
+     */
+    finished: Promise<void>
+  }> {
+    const {
+      fsv,
+      finished
+    } = await Demuxer.demuxStream(reader, byteLength, () => {
+      this.pendingFrame && this.colorDecoder.set(this.pendingFrame)
+    })
+
+    this.alphaDecoder?.close()
+    this.alphaDecoder = undefined
+
+    await this.colorDecoder.load(fsv, config)
+
+    this.currentFrame = undefined
+    this.pendingFrame = undefined
+    this.colorFrame = undefined
+    this.alphaFrame = undefined
+
+    return {
+      finished
+    }
+  }
+
   public seek(time: number): void {
     this.progress(time / this.duration)
   }

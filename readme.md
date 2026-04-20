@@ -103,6 +103,12 @@ await renderer.load('/video.fsv')
 // Load video from array buffer
 await renderer.load(arrayBuffer)
 
+// Load video stream from url
+await renderer.loadStream('/video.fsv')
+
+// Load video stream from stream reader
+await renderer.loadStream(reader)
+
 // Render the video at 50% of its duration
 renderer.progress(0.5)
 
@@ -131,6 +137,9 @@ const decoder = new Decoder((
 
 // Load video from array buffer
 await decoder.load(arrayBuffer)
+
+// Load video streal from stream reader
+await decoder.loadStream(reader)
 
 // Decode the video at 50% of its duration
 decoder.progress(0.5)
