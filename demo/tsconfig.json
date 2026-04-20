@@ -20,7 +20,8 @@
     "noFallthroughCasesInSwitch": true,
 
     "path": {
-      "~/*": ["./src/*"]
+      "~/*": ["./src/*"],
+      "@plutotcool/fsv": "../src/index.ts"
     }
   },
   "include": ["src"]
