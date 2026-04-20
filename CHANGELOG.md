@@ -1,6 +1,17 @@
 # Changelog
 
 
+## v0.2.2
+
+
+### 🚀 Enhancements
+
+- Load video from stream ([59117ad](https://github.com/plutotcool/fsv/commit/59117ad))
+
+### ❤️ Contributors
+
+- Juliendargelos <hello@julien.gl>
+
 ## v0.2.1
 
 
