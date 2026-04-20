@@ -4,6 +4,8 @@ FSV (short for "Fast Scrubbing Video") is a video format optimized for fast
 scrubbing on the web, supporting alpha channel. It has been inspired by the
 [ActiveFrame](https://github.com/activetheory/activeframe) project.
 
+[See the demo](https://plutotcool-fsv.vercel.app)
+
 This repository provides both:
 - **Conversion API**: based on [node-av](https://github.com/seydx/node-av) for
   encoding using ffmpeg node bindings, and
