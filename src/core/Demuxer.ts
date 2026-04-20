@@ -36,8 +36,6 @@ function demuxTrack(
 ): FSVTrack {
   const manifest = extractManifest(data, offset, length)
 
-  console.log(manifest)
-
   const fsv: FSVTrack = {
     config: manifest.config,
     width: manifest.width,
