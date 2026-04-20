@@ -53,8 +53,19 @@ export {
 }
 
 export interface ConvertOptions {
+  /**
+   * Whether to include an alpha track in the output.
+   */
   alpha?: boolean
+
+  /**
+   * The input video format. If not specified, it will be auto-detected.
+   */
   inputFormat?: string
+
+  /**
+   * The input video codec. If not specified, it will be auto-detected.
+   */
   inputCodec?:
     | FFDecoderCodec
     | AVCodecID
@@ -62,20 +73,49 @@ export interface ConvertOptions {
     | 'libvpx-vp9'
     | 'libvpx-vp8'
 
+  /**
+   * The output video codec.
+   */
   outputCodec?: typeof OUTPUT_CODECS[number]
+
+  /**
+   * Optional encoder settings to override the defaults.
+   */
   encoder?: Partial<EncoderOptions>
+
+  /**
+   * An optional logger instance to log the conversion process.
+   */
   logger?: ConsolaInstance
 }
 
+/**
+ * Converts a video fsv format.
+ */
 export const Converter = {
   convert
 }
 
+/**
+ * Converts a video to fsv format.
+ *
+ * @param input The input video file path or buffer.
+ * @param options Conversion options.
+ *
+ * @returns fsv data buffer
+ */
 async function convert(
   input: string | Buffer,
   options?: ConvertOptions
 ): Promise<Buffer>
 
+/**
+ * Converts a video to fsv format.
+ *
+ * @param input The input video file path or buffer.
+ * @param output The output fsv file path.
+ * @param options Conversion options.
+ */
 async function convert(
   input: string | Buffer,
   output: string,
