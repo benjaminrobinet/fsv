@@ -1,6 +1,21 @@
 # Changelog
 
 
+## v0.2.0
+
+
+### 🚀 Enhancements
+
+- ⚠️  Append manifest and magic bytes at the start of the file ([ec0b2ec](https://github.com/plutotcool/fsv/commit/ec0b2ec))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  Append manifest and magic bytes at the start of the file ([ec0b2ec](https://github.com/plutotcool/fsv/commit/ec0b2ec))
+
+### ❤️ Contributors
+
+- Juliendargelos <hello@julien.gl>
+
 ## v0.1.6
 
 ## v0.1.5
