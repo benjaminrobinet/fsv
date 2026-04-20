@@ -1,0 +1,3 @@
+allowBuilds:
+  '@seydx/node-av-darwin-arm64': true
+  node-av: true
