@@ -1,6 +1,21 @@
 # Changelog
 
 
+## v0.3.0
+
+
+### 🚀 Enhancements
+
+- ⚠️  Wait for a specific number of frames to be available when loading from stream ([dbb8eb4](https://github.com/plutotcool/fsv/commit/dbb8eb4))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  Wait for a specific number of frames to be available when loading from stream ([dbb8eb4](https://github.com/plutotcool/fsv/commit/dbb8eb4))
+
+### ❤️ Contributors
+
+- Juliendargelos <hello@julien.gl>
+
 ## v0.2.3
 
 ## v0.2.2
