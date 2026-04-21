@@ -1,6 +1,17 @@
 # Changelog
 
 
+## v0.3.8
+
+
+### 🚀 Enhancements
+
+- Encode using h264 baseline profile by default ([1b2d2cd](https://github.com/plutotcool/fsv/commit/1b2d2cd))
+
+### ❤️ Contributors
+
+- Juliendargelos <hello@julien.gl>
+
 ## v0.3.7
 
 
