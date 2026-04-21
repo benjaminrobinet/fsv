@@ -54,7 +54,6 @@ export class Renderer implements Video {
    *
    * @param canvas The canvas element to use for rendering the video frames.
    *        If not provided, a new canvas element will be created.
-   * @param options The options to configure the Renderer instance.
    */
   public constructor(canvas?: HTMLCanvasElement) {
     canvas ||= document.createElement('canvas')
@@ -149,6 +148,9 @@ export class Renderer implements Video {
      *
      * @param length The number of frames to wait for. If not specified, waits
      *        for all frames to be loaded.
+     *
+     * @returns A promise that resolves when the specified number of frames have
+     *          been loaded.
      */
     loaded(length?: number): Promise<void>
   }> {

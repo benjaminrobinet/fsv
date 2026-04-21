@@ -25,7 +25,7 @@ export interface Video extends Pick<FSVTrack,
    */
   readonly pendingFrame?: number
 
-   /**
+  /**
    * Seeks to a specific time in the video.
    *
    * @param time The time in seconds to seek to.

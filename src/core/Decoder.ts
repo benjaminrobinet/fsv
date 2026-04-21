@@ -136,6 +136,9 @@ export class Decoder implements Video {
      *
      * @param length The number of frames to wait for. If not specified, waits
      *        for all frames to be loaded.
+     *
+     * @returns A promise that resolves when the specified number of frames have
+     *          been loaded.
      */
     loaded(length?: number): Promise<void>
   }> {

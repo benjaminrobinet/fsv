@@ -105,8 +105,11 @@ async function demuxStream(
    * A function that returns a promise resolving when the specified number of
    * frames have been loaded.
    *
-   * @param length The number of frames to wait for. If not specified, waits for
-   *        all frames to be loaded.
+   * @param length The number of frames to wait for. If not specified, waits
+   *        for all frames to be loaded.
+   *
+   * @returns A promise that resolves when the specified number of frames have
+   *          been loaded.
    */
   loaded(length?: number): Promise<void>
 }> {

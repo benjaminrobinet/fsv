@@ -162,7 +162,7 @@ import { Demuxer } from '@plutotcool/fsv'
 const fsv = Demuxer.demux(arrayBuffer)
 
 // Demux video from stream, resolving as soon as the manifest is loaded
-const fsv = await Demuxer.demuxStream(streamReader)
+const { fsv } = await Demuxer.demuxStream(streamReader)
 
 console.log(fsv)
 // {
@@ -172,12 +172,12 @@ console.log(fsv)
 //   duration: 30,   // duration in seconds
 //   length: 750,    // number of frames
 //   indices: Map    // map from timestamps to frame indices
-//   frames: [       // progressively filled when loading from stream
+//   frames: [       // frames info (progressively filled when loading from stream)
 //     {
 //       keyIndex: 0 // Closest prior key frame index
 //       chunk: EncodedVideoChunk
 //     },
-//     /** 749 other frames **/
+//     // 749 other frames
 //   ]
 // }
 ```
@@ -231,7 +231,7 @@ For transparent videos, the structure is:
 | Variable   | Manifest data serialized in JSON | Alpha |
 | Variable   | Internal codec and frames data   | Alpha |
 
-The 4 trailing empty bytes are used to automatically discriminate between alpha
-and non-alpha videos: if the last 4 bytes of the file are empty, then it's a
+The 4 leading empty bytes are used to automatically discriminate between alpha
+and non-alpha videos: if the first 4 bytes of the file are empty, then it's a
 non-alpha video, otherwise it's an alpha video, and they correspond to the alpha
 data byte offset.
