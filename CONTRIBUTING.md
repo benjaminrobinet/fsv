@@ -57,15 +57,15 @@ fsv/
 
 ### Making Changes
 
-This project follows the [Gitflow](https://nvie.com/posts/a-successful-git-branching-model/)
-branching model.
+Branch names are prefixed using the same conventions as commit messages (see below), loosely
+inspired by [Gitflow](https://nvie.com/posts/a-successful-git-branching-model/).
 
 1. Create a new branch from `main`:
 
    ```shell
    git checkout -b feat/my-feature
    # or
-   git checkout -b fix/my-fix
+   git checkout -b docs/my-doc-change
    ```
 
 2. Make your changes.
@@ -107,12 +107,6 @@ To indicate a **breaking change**, add an exclamation mark (`!`) after the commi
 git commit -m "feat!: rename Renderer.load signature"
 ```
 
-Example:
-
-```shell
-git commit -m "feat: add resize option to Converter"
-```
-
 ## Code Style
 
 The codebase is written in TypeScript and follows these conventions:
@@ -121,24 +115,7 @@ The codebase is written in TypeScript and follows these conventions:
 - **Single quotes** for strings
 - **No semicolons** at the end of statements
 - **`import type`** for type-only imports
-
-### Naming
-
-| Construct | Convention | Example |
-|:----------|:-----------|:--------|
-| Classes | PascalCase | `Renderer`, `TrackDecoder` |
-| Interfaces | PascalCase | `ConvertOptions`, `FSVTrack` |
-| Functions & methods | camelCase | `convert`, `resolveOutputFormat` |
-| Variables & properties | camelCase | `framesCount`, `gopSize` |
-| Constants (module-level) | SCREAMING_SNAKE_CASE | `DEFAULT_OUTPUT_CODEC` |
-| Source files (class/interface) | PascalCase | `Converter.ts`, `Renderer.ts` |
-| Source files (utilities/CLI) | camelCase | `convert.ts`, `main.ts` |
-
-### Classes
-
-- Use `public` / `private` access modifiers explicitly.
-- Expose public API through methods and getters; keep implementation details `private`.
-- Prefer JSDoc comments on public members.
+- **JSDoc** comments on public API members
 
 ## Opening a Pull Request
 
