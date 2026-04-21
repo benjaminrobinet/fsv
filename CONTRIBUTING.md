@@ -5,8 +5,12 @@ Thank you for your interest in contributing to FSV! This guide will help you get
 ## Prerequisites
 
 - [Node.js](https://nodejs.org/) (see `package.json` for the required version)
-- [pnpm](https://pnpm.io/) package manager
-- [ffmpeg](https://ffmpeg.org/) installed on your system (required for video conversion)
+- [corepack](https://nodejs.org/api/corepack.html) (included with Node.js)
+- [pnpm](https://pnpm.io/) package manager (managed via corepack)
+
+> **Note:** ffmpeg bindings are installed automatically by [node-av](https://github.com/seydx/node-av)
+> via npm lifecycle scripts. Make sure npm pre/post-scripts are **not** disabled in your
+> environment (i.e. do not pass `--ignore-scripts` when installing dependencies).
 
 ## Getting Started
 
@@ -44,7 +48,7 @@ fsv/
 │   ├── cli/       # CLI entry points and commands
 │   ├── core/      # Core library (Converter, Decoder, Demuxer, Muxer, Renderer, …)
 │   └── index.ts   # Public browser-side exports
-├── @types/        # Global type declarations
+├── @types/        # Internal type declarations for shader modules (*.vert, *.frag)
 ├── demo/          # Demo application source
 └── tsdown.config.ts
 ```
@@ -52,6 +56,9 @@ fsv/
 ## Development Workflow
 
 ### Making Changes
+
+This project follows the [Gitflow](https://nvie.com/posts/a-successful-git-branching-model/)
+branching model.
 
 1. Create a new branch from `main`:
 
@@ -61,9 +68,9 @@ fsv/
    git checkout -b fix/my-fix
    ```
 
-2. Make your changes in the `src/` directory.
+2. Make your changes.
 
-3. Build the package to check for TypeScript errors:
+3. Build the package:
 
    ```shell
    pnpm build
@@ -94,11 +101,44 @@ This project follows [Conventional Commits](https://www.conventionalcommits.org/
 | `refactor:`| Code change that neither fixes a bug nor adds a feature |
 | `perf:`    | A code change that improves performance      |
 
+To indicate a **breaking change**, add an exclamation mark (`!`) after the commit type:
+
+```shell
+git commit -m "feat!: rename Renderer.load signature"
+```
+
 Example:
 
 ```shell
-git commit -m "feat: add support for VP9 alpha channel"
+git commit -m "feat: add resize option to Converter"
 ```
+
+## Code Style
+
+The codebase is written in TypeScript and follows these conventions:
+
+- **2-space indentation**, no tabs
+- **Single quotes** for strings
+- **No semicolons** at the end of statements
+- **`import type`** for type-only imports
+
+### Naming
+
+| Construct | Convention | Example |
+|:----------|:-----------|:--------|
+| Classes | PascalCase | `Renderer`, `TrackDecoder` |
+| Interfaces | PascalCase | `ConvertOptions`, `FSVTrack` |
+| Functions & methods | camelCase | `convert`, `resolveOutputFormat` |
+| Variables & properties | camelCase | `framesCount`, `gopSize` |
+| Constants (module-level) | SCREAMING_SNAKE_CASE | `DEFAULT_OUTPUT_CODEC` |
+| Source files (class/interface) | PascalCase | `Converter.ts`, `Renderer.ts` |
+| Source files (utilities/CLI) | camelCase | `convert.ts`, `main.ts` |
+
+### Classes
+
+- Use `public` / `private` access modifiers explicitly.
+- Expose public API through methods and getters; keep implementation details `private`.
+- Prefer JSDoc comments on public members.
 
 ## Opening a Pull Request
 
