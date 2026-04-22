@@ -157,9 +157,8 @@ export class Decoder implements Video {
     try {
       await this.colorDecoder.load(fsv, config)
     } catch (error) {
-      throw error
-    } finally {
       await reader.cancel()
+      throw error
     }
 
     this.currentFrame = undefined

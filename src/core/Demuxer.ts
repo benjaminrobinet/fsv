@@ -174,7 +174,7 @@ async function demuxStream(
 
     while (
       loadingFrame &&
-      buffer.byteLength > loadingFrame.offset + loadingFrame.byteLength
+      buffer.byteLength >= loadingFrame.offset + loadingFrame.byteLength
     ) {
       const frame = manifest.frames[loadingFrameIndex]
       loadedFrame = true
