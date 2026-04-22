@@ -239,3 +239,18 @@ Use `feat!:` (with `!`) to indicate a **breaking change**.
 - **Never commit and push in one go** unless the user explicitly asks (e.g. "commit and push", or confirms a push immediately after a commit).
 - **Pull before working**: if the local repo has no uncommitted changes, run `git pull` before starting any work.
 - **Branches**: whenever a change is non-trivial or affects a distinct concern, propose creating a dedicated branch with the appropriate conventional prefix and a short descriptive name (e.g. `feat/my-feature`, `fix/some-bug`, `chore/update-deps`), and wait for confirmation before creating it.
+- **Before opening a PR**: always show the proposed **title**, **description** (1–3 bullet point summary of what changed and why), and **labels**, and wait for explicit confirmation before proceeding.
+- **PR titles** follow the same Conventional Commits prefix convention as commit messages (`feat:`, `fix:`, `chore:`, etc.).
+- **PR descriptions** must include a short **Summary** section with 1–3 bullet points describing what changed and why.
+- **PR labels** should be set automatically based on the PR type using `gh pr create --label`:
+
+| Commit/PR type | Label(s) |
+|---|---|
+| `feat:` | `Type: Enhancement` |
+| `fix:` | `Type: Bug` |
+| `docs:` | `Chore: Documentation` |
+| `chore:` (deps) | `Chore: Dependencies` |
+| `chore:` (CI/CD/environments) | `Chore: Environments` |
+| `chore:` (other) | `Type: Repository` |
+| `refactor:` or `perf:` | `Type: Enhancement` |
+| any `!` (breaking change) | add `Type: Breaking Change` in addition to the primary label |
