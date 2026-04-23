@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.3.11
+
+[compare changes](https://github.com/plutotcool/fsv/compare/v0.3.10...v0.3.11)
+
+### 🩹 Fixes
+
+- Remove registry-url and NPM_CONFIG_PROVENANCE from release workflow ([12e5027](https://github.com/plutotcool/fsv/commit/12e5027))
+
+### ❤️ Contributors
+
+- Juliendargelos <hello@julien.gl>
+
 ## v0.3.10
 
 [compare changes](https://github.com/plutotcool/fsv/compare/v0.3.9...v0.3.10)
