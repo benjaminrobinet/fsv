@@ -1,6 +1,26 @@
 # Changelog
 
 
+## v0.3.15
+
+[compare changes](https://github.com/plutotcool/fsv/compare/v0.3.14...v0.3.15)
+
+### 🩹 Fixes
+
+- Duration was exposed in microseconds but is expected to be in seconds ([78bd842](https://github.com/plutotcool/fsv/commit/78bd842))
+- Actually let's just apply the unit conversion only in the public seek so everything still uses microseconds ([c84865e](https://github.com/plutotcool/fsv/commit/c84865e))
+
+### 🏡 Chore
+
+- Disable vercel checks on prs ([e0d0687](https://github.com/plutotcool/fsv/commit/e0d0687))
+- Merge pull request #14 from benjaminrobinet/fix/duration-in-seconds ([#14](https://github.com/plutotcool/fsv/issues/14))
+
+### ❤️ Contributors
+
+- Julien Dargelos ([@juliendargelos](https://github.com/juliendargelos))
+- Juliendargelos <hello@julien.gl>
+- Benjamin Robinet ([@benjaminrobinet](https://github.com/benjaminrobinet))
+
 ## v0.3.14
 
 [compare changes](https://github.com/plutotcool/fsv/compare/v0.3.13...v0.3.14)
