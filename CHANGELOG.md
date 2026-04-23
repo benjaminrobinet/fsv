@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.3.12
+
+[compare changes](https://github.com/plutotcool/fsv/compare/v0.3.11...v0.3.12)
+
+### 🏡 Chore
+
+- Publish to npm registry via trusted publishing in release workflow ([9a533c8](https://github.com/plutotcool/fsv/commit/9a533c8))
+
+### ❤️ Contributors
+
+- Juliendargelos <hello@julien.gl>
+
 ## v0.3.11
 
 [compare changes](https://github.com/plutotcool/fsv/compare/v0.3.10...v0.3.11)
