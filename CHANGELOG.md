@@ -1,6 +1,28 @@
 # Changelog
 
 
+## v0.4.0
+
+[compare changes](https://github.com/plutotcool/fsv/compare/v0.3.15...v0.4.0)
+
+### 🚀 Enhancements
+
+- ⚠️  Remove unused byteLength parameter in renderer loadStream method ([05dda73](https://github.com/plutotcool/fsv/commit/05dda73))
+- ⚠️  Expose webgl context attributes from the renderer options, make alpha premultiplication optional in fragment shader, closes #11 ([#11](https://github.com/plutotcool/fsv/issues/11))
+
+### 📖 Documentation
+
+- Mention unstable API in v0 notice ([2a231a7](https://github.com/plutotcool/fsv/commit/2a231a7))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  Remove unused byteLength parameter in renderer loadStream method ([05dda73](https://github.com/plutotcool/fsv/commit/05dda73))
+- ⚠️  Expose webgl context attributes from the renderer options, make alpha premultiplication optional in fragment shader, closes #11 ([#11](https://github.com/plutotcool/fsv/issues/11))
+
+### ❤️ Contributors
+
+- Juliendargelos <hello@julien.gl>
+
 ## v0.3.15
 
 [compare changes](https://github.com/plutotcool/fsv/compare/v0.3.14...v0.3.15)
